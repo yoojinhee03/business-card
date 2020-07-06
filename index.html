@@ -2,11 +2,16 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<title>명함 만들기</title>
 	<style>
 		@import url("css/index.css");
 		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
 	<script src="js/index.js"></script>
 </head>
 <body>
@@ -23,11 +28,42 @@
 					<li class="menu-list"><a href="#" onclick="showMenu(this)">사이즈</a></li>
 					<li class="menu-list"><a href="#" onclick="showMenu(this)">색깔</a></li>
 					<li class="menu-list"><a href="#" onclick="showMenu(this)">텍스트</a></li>
-					<li class="menu-list"><a href="#" onclick="showMenu(this)">폰트</a></li>
+					<!-- <li class="menu-list"><a href="#" onclick="showMenu(this)">폰트</a></li> -->
 				</ul>
 			</div>
 			<div id="menu-container" style="display: none">
-				
+				<div id="menu-size">
+					<ul>
+					  <li >
+					    <input type="radio" id="basic-size" name="selector" onclick="sizeChk(350,630)" checked>
+					    <label for="basic-size">90mm X 50mm</label>
+					    <div class="check"></div>
+					  </li>
+					  <li>
+					    <input type="radio" id="opm-size" name="selector" onclick="sizeChk(385,595)">
+					    <label for="opm-size">85mm X 55mm</label>
+					    <div class="check"><!-- <div class="inside"></div> --></div>
+					  </li>
+					  <li>
+					    <input type="radio" id="square-size" name="selector" onclick="sizeChk(420,420)">
+					    <label for="square-size">60mm X 60mm</label>
+					    <div class="check"><div class="inside"></div></div>
+					  </li>
+					</ul>
+				</div>
+				<div id="menu-color">
+				</div>
+				<div id="menu-text" onclick="menuTextClick(event)">
+					<div class="input-text">
+						<div class="text">
+							<input type="text" id="text">
+						</div>
+						<div class="button">
+							<input type="button" value="확인" onclick="inputTextClick()">
+						</div>
+					</div>
+				</div>
+				<div></div>
 			</div>
 			<div id="model-container">
 				
