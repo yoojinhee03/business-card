@@ -5,13 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<title>명함 만들기</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<!-- <script src="//code.jquery.com/jquery.min.js"></script> -->
 	<style>
 		@import url("css/index.css");
 		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 	</style>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+	<link rel="stylesheet" href="minicolors/jquery.minicolors.css">
+	<script src="minicolors/jquery.minicolors.js"></script>
 	<script src="js/index.js"></script>
 </head>
 <body>
@@ -52,6 +53,8 @@
 					</ul>
 				</div>
 				<div id="menu-color">
+					<input type="text" id="demo" class="demo" value="#0065ff">
+					<script>$('.demo').minicolors();</script>
 				</div>
 				<div id="menu-text" onclick="menuTextClick(event)">
 					<div class="input-text">

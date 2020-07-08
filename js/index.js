@@ -27,12 +27,73 @@ function sizeChk(width,height){
 	
 }
 
-function inputTextClick(){
-	var inputText=document.createElement('div');
-	var modelContainer=document.getElementById("model-container");
+$('.demo').minicolors({
+
+  // animation speed
+  animationSpeed: 50,
+
+  // easing function
+  animationEasing: 'swing',
+
+  // defers the change event from firing while the user makes a selection
+  changeDelay: 0,
+
+  // hue, brightness, saturation, or wheel
+  control: 'hue',
+
+  // default color
+  defaultValue: '',
+
+  // hex or rgb
+  format: 'hex',
+
+  // show/hide speed
+  showSpeed: 100,
+  hideSpeed: 100,
+
+  // is inline mode?
+  inline: false,
+
+  // a comma-separated list of keywords that the control should accept (e.g. inherit, transparent, initial). 
+  keywords: '',
+
+  // uppercase or lowercase
+  letterCase: 'lowercase',
+
+  // enables opacity slider
+  opacity: false,
+
+  // custom position
+  position: 'bottom left',
+  
+  // additional theme class
+  theme: 'default',
+
+  // an array of colors that will show up under the main color <a href="https://www.jqueryscript.net/tags.php?/grid/">grid</a>
+  swatches: []
+  
+});
+
+$('.demo').minicolors({
+
+  // Fires when the value of the color picker changes
+  change: null,
+
+  // Fires when the color picker is hidden.
+  hide: null,
+
+  // Fires when the color picker is shown. 
+  show: null
+
+});
+function inputTextClick(){//확인 눌렀을때
 	var text=document.getElementById("text");
-	modelContainer.appendChild(inputText);
-	inputText.innerText=text.value;
+	if(text.value.length>0){
+		var inputText=document.createElement('div');
+		var modelContainer=document.getElementById("model-container");
+		modelContainer.appendChild(inputText);
+		inputText.innerText=text.value;
+	}
 }
 
 function menuTextClick(event){

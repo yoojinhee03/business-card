@@ -417,6 +417,7 @@
       switch(settings.control) {
         case 'wheel':
           // Calculate hue, saturation, and brightness
+          console.log(1);
           x = (grid.width() / 2) - gridPos.x;
           y = (grid.height() / 2) - gridPos.y;
           r = Math.sqrt(x * x + y * y);
@@ -442,6 +443,8 @@
 
         case 'saturation':
           // Calculate hue, saturation, and brightness
+          console.log(1);
+
           hue = keepWithin(parseInt(gridPos.x * (360 / grid.width()), 10), 0, 360);
           saturation = keepWithin(100 - Math.floor(sliderPos.y * (100 / slider.height())), 0, 100);
           brightness = keepWithin(100 - Math.floor(gridPos.y * (100 / grid.height())), 0, 100);
@@ -457,6 +460,8 @@
           break;
 
         case 'brightness':
+          console.log(1);
+
           // Calculate hue, saturation, and brightness
           hue = keepWithin(parseInt(gridPos.x * (360 / grid.width()), 10), 0, 360);
           saturation = keepWithin(100 - Math.floor(gridPos.y * (100 / grid.height())), 0, 100);
@@ -473,6 +478,7 @@
           break;
 
         default:
+
           // Calculate hue, saturation, and brightness
           hue = keepWithin(360 - parseInt(sliderPos.y * (360 / slider.height()), 10), 0, 360);
           saturation = keepWithin(Math.floor(gridPos.x * (100 / grid.width())), 0, 100);
@@ -482,9 +488,14 @@
             s: saturation,
             b: brightness
           });
-
+          // console.log('dd');
           // Update UI
           grid.css('backgroundColor', hsb2hex({ h: hue, s: 100, b: 100 }));
+
+          var modelContainer=document.getElementById("model-container");
+          modelContainer.style.backgroundColor=hsb2hex({ h: hue, s: 100, b: 100 });
+          // console.log(modelContainer.style.backgroundColor);
+          // modelContainer.style.opacity=String(swatch.a);
           break;
       }
 
@@ -514,6 +525,7 @@
   function updateInput(input, value, opacity) {
     var rgb;
 
+    console.log('aa');
     // Helpful references
     var minicolors = input.parent();
     var settings = input.data('minicolors-settings');
@@ -528,9 +540,11 @@
       // Checks for input format and does the conversion
       if(isRgb(value)) {
         rgb = parseRgb(value, true);
+       
       }
       else {
         rgb = hex2rgb(parseHex(value, true));
+       
       }
 
       opacity = input.attr('data-opacity') === '' ? 1 : keepWithin(parseFloat(input.attr('data-opacity')).toFixed(2), 0, 1);
@@ -563,6 +577,9 @@
       opacity: String(opacity)
     });
 
+     var modelContainer=document.getElementById("model-container");
+     modelContainer.style.backgroundColor=value;
+     modelContainer.style.opacity=String(opacity);
     // Handle change event
     doChange(input, value, opacity);
   }
@@ -727,8 +744,14 @@
     var lastChange = input.data('minicolors-lastChange');
     var obj, sel, i;
 
+
     // Only run if it actually changed
     if(!lastChange || lastChange.value !== value || lastChange.opacity !== opacity) {
+
+
+        
+        // console.log(modelContainer.style.backgroundColor);
+        // modelContainer.style.opacity=String(swatch.a);
 
       // Remember last-changed value
       input.data('minicolors-lastChange', {
