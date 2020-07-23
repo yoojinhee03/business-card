@@ -19,7 +19,7 @@
 	<div class="wrapper">
 		<header>
 			<div id="title-container">
-				<div>본인만의</div><br>
+				<div draggable="true" ondragstart="alert('dd')">본인만의</div><br>
 				<div>명함을 만들어보세요</div>
 			</div>
 		</header>
@@ -32,16 +32,19 @@
 					<!-- <li class="menu-list"><a href="#" onclick="showMenu(this)">폰트</a></li> -->
 				</ul>
 			</div>
+			<div id="model-container">
+				
+			</div>
 			<div id="menu-container" style="display: none">
 				<div id="menu-size">
 					<ul>
 					  <li >
-					    <input type="radio" id="basic-size" name="selector" onclick="sizeChk(350,630)" checked>
+					    <input type="radio" id="basic-size" name="selector" onclick="sizeChk(630,350)" checked>
 					    <label for="basic-size">90mm X 50mm</label>
 					    <div class="check"></div>
 					  </li>
 					  <li>
-					    <input type="radio" id="opm-size" name="selector" onclick="sizeChk(385,595)">
+					    <input type="radio" id="opm-size" name="selector" onclick="sizeChk(595,385)">
 					    <label for="opm-size">85mm X 55mm</label>
 					    <div class="check"><!-- <div class="inside"></div> --></div>
 					  </li>
@@ -56,7 +59,7 @@
 					<input type="text" id="demo" class="demo" value="#0065ff">
 					<script>$('.demo').minicolors();</script>
 				</div>
-				<div id="menu-text" onclick="menuTextClick(event)">
+				<!-- <div id="menu-text" onclick="menuTextClick(event)">
 					<div class="input-text">
 						<div class="text">
 							<input type="text" id="text">
@@ -65,12 +68,10 @@
 							<input type="button" value="확인" onclick="inputTextClick()">
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<div></div>
 			</div>
-			<div id="model-container">
-				
-			</div>
+			
 		</main>
 	</div>
 </body>

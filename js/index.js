@@ -93,6 +93,8 @@ function inputTextClick(){//확인 눌렀을때
 		var modelContainer=document.getElementById("model-container");
 		modelContainer.appendChild(inputText);
 		inputText.innerText=text.value;
+		inputText.className="drag-text";
+		inputText.draggable="true";
 	}
 }
 
